@@ -6,11 +6,29 @@ from test_framework.test_utils import enable_executor_hook
 
 RED, WHITE, BLUE = range(3)
 
-
+# Hint: do two passes
 def dutch_flag_partition(pivot_index, A):
-    # TODO - you fill in here.
-    return
+    # l is smaller index
+    # r is larger index
+    l, r = 0, len(A)-1
+    # smaller ones first
+    p = A[pivot_index]
+    for i in range(len(A)):
+        if(A[i] < p):
+            A[l], A[i] = A[i], A[l]
+            l += 1
+    # then do larger ones
+    for i in reversed(range(len(A))):
+        if(A[i] < p):
+            break
+        if(A[i] > p):
+            A[r], A[i] = A[i], A[r]
+            r -= 1
+    return A
 
+# trickier implementation with split between lower, equal, higher
+def dutch_flag_partition_optimal(pivot_index, A):
+    pass
 
 @enable_executor_hook
 def dutch_flag_partition_wrapper(executor, A, pivot_idx):

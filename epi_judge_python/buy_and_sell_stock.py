@@ -1,8 +1,9 @@
 from test_framework import generic_test
 
 
+# divide and conquer
 def buy_and_sell_stock_once(prices):
-    # TODO - you fill in here.
+    
     return 0.0
 
 

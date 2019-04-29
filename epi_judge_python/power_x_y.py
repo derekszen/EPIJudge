@@ -1,10 +1,13 @@
 from test_framework import generic_test
+import math
 
-
-def power(x, y):
-    # TODO - you fill in here.
-    return 0.0
-
+# use recursive solution
+# worst case runtime is O(n)
+# n is number of bits in binary representation of y
+def power(x: float, y: int) -> float:
+    if(y == 1):
+        return x
+    return power(x*x, y>>1)
 
 if __name__ == '__main__':
     exit(
