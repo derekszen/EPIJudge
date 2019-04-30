@@ -1,9 +1,18 @@
 from test_framework import generic_test
-
+import bisect
 
 def search_first_of_k(A, k):
-    # TODO - you fill in here.
-    return 0
+    l, m, r, result = 0, len(A)//2 ,len(A)-1, -1
+    while(l <= r): 
+        m = (l + r)//2
+        if A[m] > k:
+            r = m - 1
+        elif A[m] == k: 
+            result = m
+            r = m - 1
+        else: #A[m] < k
+            l = m + 1
+    return result
 
 
 if __name__ == '__main__':
